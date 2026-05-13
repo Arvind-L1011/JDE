@@ -19,8 +19,7 @@ import ExecutiveReport from "./pages/ExecutiveReport";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/purchase-orders" component={PurchaseOrders} />
+      <Route path="/" component={Home} />      <Route path="/dashboard" component={Home} />      <Route path="/purchase-orders" component={PurchaseOrders} />
       <Route path="/sales-orders" component={SalesOrders} />
       <Route path="/inventory" component={Inventory} />
       <Route path="/suppliers" component={Suppliers} />
