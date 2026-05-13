@@ -3,7 +3,7 @@ import * as jdeDb from '../jdeDb';
 import { z } from 'zod';
 
 export type { Message, Role };
-
+// Example tool definition for JDE SQL querying
 const JDE_TOOLS: Tool[] = [{
   type: 'function',
   function: {
