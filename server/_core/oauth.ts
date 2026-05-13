@@ -21,12 +21,16 @@ export function registerOAuthRoutes(app: Express) {
     const email = getQueryParam(req, "email") ?? "dev@example.com";
 
     try {
-      await db.upsertUser({
+      // Try to upsert user in database (optional for dev mode)
+      db.upsertUser({
         openId,
         name,
         email,
         loginMethod: "dev",
         lastSignedIn: new Date(),
+      }).catch((error) => {
+        console.warn("[OAuth] Dev login: Database unavailable, continuing without DB", error);
+        // Non-blocking - continue even if DB fails
       });
 
       const sessionToken = await sdk.createSessionToken(openId, {
