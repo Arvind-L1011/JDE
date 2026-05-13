@@ -44,7 +44,7 @@ export function registerOAuthRoutes(app: Express) {
         maxAge: ONE_YEAR_MS,
       });
 
-      res.redirect(302, "/");
+      res.redirect(302, "/dashboard");
     } catch (error) {
       console.error("[OAuth] Dev login failed", error);
       res.status(500).json({ error: "Dev login failed" });
