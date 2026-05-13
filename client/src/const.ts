@@ -7,8 +7,12 @@ export const getLoginUrl = () => {
   const redirectUri = `${window.location.origin}/api/oauth/callback`;
   const state = btoa(redirectUri);
 
-  // Local dev fallback when no external OAuth portal is configured.
-  if (!oauthPortalUrl || oauthPortalUrl === window.location.origin) {
+  // Local dev fallback when no external OAuth portal is configured or when the portal is still pointing at localhost.
+  if (
+    !oauthPortalUrl ||
+    oauthPortalUrl === window.location.origin ||
+    oauthPortalUrl.includes("localhost")
+  ) {
     return "/api/dev/login";
   }
 
